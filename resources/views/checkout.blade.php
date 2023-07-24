@@ -16,7 +16,7 @@
 
 <body>
     <div class="container mt-3 mb-3">
-        <a href="https://ronin-topup.vercel.app/" style="text-decoration:none; color: inherit;"><h1>RONIN TOPUP</h1></a>
+        <h1>RONIN TOPUP</h1>
 
         <div class="container mt-6 mb-7">
             <div class="row justify-content-center">
