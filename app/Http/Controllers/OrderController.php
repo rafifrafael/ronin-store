@@ -56,4 +56,9 @@ class OrderController extends Controller
             }
         }
     }
+
+    public function invoice($id){
+        $order = Order::find($id);
+        return view('invoice', compact('order'));
+    }
 }

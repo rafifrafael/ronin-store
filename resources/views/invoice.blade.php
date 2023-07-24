@@ -4,11 +4,6 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- @TODO: replace SET_YOUR_CLIENT_KEY_HERE with your client key -->
-    <script type="text/javascript"
-      src="https://app.sandbox.midtrans.com/snap/snap.js"
-      data-client-key="SB-Mid-client-Fk7OCS5kBxFCbyVY"></script>
-    <!-- Note: replace with src="https://app.midtrans.com/snap/snap.js" for Production environment -->
     <title>Ronin TopUp</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
@@ -57,20 +52,13 @@
                                         <td class="px-0">Valorant Points</td>
                                         <td class="text-end px-0">Rp {{$order->total_price}}</td>
                                     </tr>
+                                    <tr>
+                                        <td class="px-0">Status</td>
+                                        <td class="text-end px-0">{{$order->status}}</td>
+                                    </tr>
                                 </tbody>
                             </table>
-
-                            <div class="mt-5">
-                                <div class="d-flex justify-content-end mt-3">
-                                    <h5 class="me-3">Total:</h5>
-                                    <h5 class="text-success">Rp {{$order->total_price}}</h5>
-                                </div>
-                            </div>
                         </div>
-                        <button
-                            class="btn btn-dark btn-lg card-footer-btn justify-content-center text-uppercase-bold-sm hover-lift-light" id="pay-button">
-                            Pay Now
-                        </button>
                     </div>
                 </div>
             </div>
@@ -80,31 +68,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous">
     </script>
-    <script type="text/javascript">
-        // For example trigger on button clicked, or any time you need
-        var payButton = document.getElementById('pay-button');
-        payButton.addEventListener('click', function () {
-          // Trigger snap popup. @TODO: Replace TRANSACTION_TOKEN_HERE with your transaction token
-          window.snap.pay('{{$snapToken}}', {
-            onSuccess: function(result){
-              /* You may add your own implementation here */
-              alert("payment success!"); window.location.href = "https://ronin-topup.vercel.app/invoice/{{$order->id}}"; console.log(result);
-            },
-            onPending: function(result){
-              /* You may add your own implementation here */
-              alert("wating your payment!"); console.log(result);
-            },
-            onError: function(result){
-              /* You may add your own implementation here */
-              alert("payment failed!"); console.log(result);
-            },
-            onClose: function(){
-              /* You may add your own implementation here */
-              alert('you closed the popup without finishing the payment');
-            }
-          })
-        });
-      </script>
 </body>
 
 </html>
