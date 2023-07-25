@@ -80,7 +80,7 @@
                                 <tbody>
                                     <tr>
                                         <td class="px-0">{{ $order->item_name }}</td>
-                                        <td class="text-end px-0">Rp {{ $order->total_price }}</td>
+                                        <td class="text-end px-0">Rp {{ $order->price }}</td>
                                     </tr>
                                     <tr>
                                         <td class="px-0">Qty</td>
