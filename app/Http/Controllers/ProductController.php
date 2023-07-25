@@ -20,4 +20,9 @@ class ProductController extends Controller
         $product = Product::find($id);
         return view('buy', compact('product'));
     }
+
+    public function docs()
+    {
+        return view('docs');
+    }
 }

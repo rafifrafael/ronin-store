@@ -18,5 +18,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [ProductController::class, 'index']);
 Route::get('/buy/{id}', [ProductController::class, 'buy']);
+Route::get('/docs', [ProductController::class, 'docs']);
+
 Route::post('/checkout', [OrderController::class, 'checkout']);
 Route::get('/invoice/{id}', [OrderController::class, 'invoice']);
