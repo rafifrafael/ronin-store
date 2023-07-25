@@ -50,7 +50,7 @@
                     <div class="card">
                         <div class="card-body p-5">
                             <h2>
-                                Hey {{ $order->email }},
+                                Hey {{ $order->name }},
                             </h2>
                             <p class="fs-sm">
                                 This is the receipt for a payment of <strong>Rp {{ $order->total_price }}</strong> you
