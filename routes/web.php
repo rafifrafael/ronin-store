@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\ProductController;
+use App\Models\Product;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [OrderController::class, 'index']);
-Route::get('/valorant', [OrderController::class, 'valorant']);
+Route::get('/', [ProductController::class, 'index']);
+Route::get('/buy/{id}', [ProductController::class, 'buy']);
 Route::post('/checkout', [OrderController::class, 'checkout']);
 Route::get('/invoice/{id}', [OrderController::class, 'invoice']);

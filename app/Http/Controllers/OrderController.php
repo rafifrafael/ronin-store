@@ -3,23 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Models\Order;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class OrderController extends Controller
 {
-    public function index()
-    {
-        return view('home');
-    }
-
-    public function valorant()
-    {
-        return view('valorant');
-    }
-
     public function checkout(Request $request)
     {
-        $request->request->add(['status' => 'Unpaid']);
+        $request->request->add(['status' => 'Unpaid', 'total_price' => $request->qty * $request->price, 'item_name' => $request->item_name]);
         $order = Order::create($request->all());
 
         // Set your Merchant Server Key
@@ -37,8 +28,7 @@ class OrderController extends Controller
                 'gross_amount' => $order->total_price,
             ),
             'customer_details' => array(
-                'first_name' => $request->email,
-                'name' => $request->name,
+                'first_name' => $request->name,
                 'email' => $request->email
             ),
         );
