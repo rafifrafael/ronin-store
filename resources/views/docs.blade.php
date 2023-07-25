@@ -72,7 +72,11 @@
           </table>
 
           <a class="btn btn-primary" href="/" target="_blank">Check the store!</a>
+
     </div>
+    <footer class="py-5 bg-dark fixed-bottom">
+        <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Ronin Store 2023</p></div>
+    </footer>
     {{-- <div class="container mt-3 mb-3">        
         <a href="https://ronin-topup.vercel.app/" style="text-decoration:none; color: inherit;"><h1>RONIN TOPUP</h1></a>          
         <div class="row row-cols-1 row-cols-md-3 g-4 mt-3">
