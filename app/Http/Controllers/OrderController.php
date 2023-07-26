@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Order;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class OrderController extends Controller
 {
@@ -51,5 +52,11 @@ class OrderController extends Controller
     public function invoice($id){
         $order = Order::find($id);
         return view('invoice', compact('order'));
+    }
+
+    public function admin()
+    {
+        $order = DB::table('orders')->get();
+        return view('admin', ['order' => $order]);
     }
 }

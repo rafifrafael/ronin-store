@@ -20,5 +20,6 @@ Route::get('/', [ProductController::class, 'index']);
 Route::get('/buy/{id}', [ProductController::class, 'buy']);
 Route::get('/docs', [ProductController::class, 'docs']);
 
+Route::get('/admin', [OrderController::class, 'admin']);
 Route::post('/checkout', [OrderController::class, 'checkout']);
 Route::get('/invoice/{id}', [OrderController::class, 'invoice']);
