@@ -77,17 +77,6 @@
     <footer class="py-5 bg-dark fixed-bottom">
         <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Ronin Store 2023</p></div>
     </footer>
-    {{-- <div class="container mt-3 mb-3">        
-        <a href="https://ronin-topup.vercel.app/" style="text-decoration:none; color: inherit;"><h1>RONIN TOPUP</h1></a>          
-        <div class="row row-cols-1 row-cols-md-3 g-4 mt-3">
-            <div class="col">
-                <a href="/valorant" style="text-decoration:none; color: inherit;">
-                    <img src="https://latomstore.id/assets/img/kategori/1688036494ANT_55_11zon.webp" width="150" height="200" alt="valorant"><br>
-                    Valorant
-                </a>
-            </div>
-        </div>
-    </div> --}}
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous">
     </script>
