@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="favicon.ico">
     <title>Ronin Store</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -11,33 +11,33 @@
 </head>
 
 <body>
-        <!-- Navigation-->
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container px-4 px-lg-5">
-                <a class="navbar-brand" href="/">Ronin Store</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                    aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="/">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/admin">Admin</a></li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">Shop</a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="#!">All Products</a></li>
-                                <li>
-                                    <hr class="dropdown-divider" />
-                                </li>
-                                <li><a class="dropdown-item" href="#!">Popular Items</a></li>
-                                <li><a class="dropdown-item" href="#!">New Arrivals</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container px-4 px-lg-5">
+            <a class="navbar-brand" href="/">Ronin Store</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="/">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/admin">Admin</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">Shop</a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#!">All Products</a></li>
+                            <li>
+                                <hr class="dropdown-divider" />
+                            </li>
+                            <li><a class="dropdown-item" href="#!">Popular Items</a></li>
+                            <li><a class="dropdown-item" href="#!">New Arrivals</a></li>
+                        </ul>
+                    </li>
+                </ul>
             </div>
-        </nav>
+        </div>
+    </nav>
     <div class="container mt-3 mb-3">
         <div class="container mt-6 mb-7">
             <div class="row justify-content-center">
@@ -45,21 +45,22 @@
                     <div class="card">
                         <div class="card-body p-5">
                             <h2>
-                                Hey {{$order->name}},
+                                Hey {{ $order->name }},
                             </h2>
                             <p class="fs-sm">
-                                This is the receipt for a payment of <strong>Rp {{$order->total_price}}</strong> you made to Ronin Store.
+                                This is the receipt for a payment of <strong>Rp {{ $order->total_price }}</strong> you
+                                made to Ronin Store.
                             </p>
 
                             <div class="border-top border-gray-200 pt-4 mt-4">
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="text-muted mb-2">Payment No.</div>
-                                        <strong>#{{$order->id}}</strong>
+                                        <strong>#{{ $order->id }}</strong>
                                     </div>
                                     <div class="col-md-6 text-md-end">
                                         <div class="text-muted mb-2">Payment Date</div>
-                                        <strong>{{$order->created_at}}</strong>
+                                        <strong>{{ $order->created_at }}</strong>
                                     </div>
                                 </div>
                             </div>
@@ -75,16 +76,22 @@
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td class="px-0">{{$order->item_name}}</td>
-                                        <td class="text-end px-0">Rp {{$order->total_price}}</td>
+                                        <td class="px-0">{{ $order->item_name }}</td>
+                                        <td class="text-end px-0">Rp {{ $order->total_price }}</td>
                                     </tr>
                                     <tr>
                                         <td class="px-0">Qty</td>
-                                        <td class="text-end px-0">{{$order->qty}}</td>
+                                        <td class="text-end px-0">{{ $order->qty }}</td>
                                     </tr>
                                     <tr>
                                         <td class="px-0">Status</td>
-                                        <td class="text-end px-0">{{$order->status}}</td>
+                                        <td class="text-end px-0">
+                                            @if ($order->status == 'Paid')
+                                                <span class="badge text-bg-success">Paid</span>
+                                            @else
+                                                <span class="badge text-bg-danger">Unpaid</span>
+                                            @endif
+                                        </td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -95,7 +102,9 @@
         </div>
     </div>
     <footer class="py-5 bg-dark fixed-bottom">
-        <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Ronin Store 2023</p></div>
+        <div class="container">
+            <p class="m-0 text-center text-white">Copyright &copy; Ronin Store 2023</p>
+        </div>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous">

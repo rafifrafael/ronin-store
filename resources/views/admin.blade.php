@@ -42,10 +42,10 @@
 
     <!-- Section-->
     <div class="container mt-3">
-        <table id="order" class="table table-striped" style="width:100%">
+        <table id="orders" class="table table-striped" style="width:100%">
             <thead>
                 <tr>
-                    <th>ID</th>
+                    <th>Order ID</th>
                     <th>Nama</th>
                     <th>Email</th>
                     <th>Alamat</th>
@@ -54,30 +54,30 @@
                     <th>Qty</th>
                     <th>Total Harga</th>
                     <th>Status</th>
+                    <th>Invoice</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach ($order as $key => $order)
                 <tr>
-                    <td>{{$order->id}}</td>
+                    <td>#{{$order->id}}</td>
                     <td>{{$order->name}}</td>
                     <td>{{$order->email}}</td>
                     <td>{{$order->address}}</td>
                     <td>{{$order->item_name}}</td>
-                    <td>{{$order->price}}</td>
+                    <td>Rp {{$order->price}}</td>
                     <td>{{$order->qty}}</td>
-                    <td>{{$order->total_price}}</td>
+                    <td>Rp {{$order->total_price}}</td>
                     <td>
                         @if($order->status == 'Paid')
                             <span class="badge text-bg-success">Paid</span>
                         @else
                             <span class="badge text-bg-danger">Unpaid</span>
-                        @endif
-                        
+                        @endif                        
                     </td>
+                    <td><a href="/invoice/{{$order->id}}" target="_blank">Cek Invoice</a></td>
                 </tr>
                 @endforeach
-                <tr>
             </tbody>
         </table>
     </div>
@@ -89,10 +89,11 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous">
     </script>
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
     <script src="https://cdn.datatables.net/1.13.5/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.5/js/dataTables.bootstrap5.min.js"></script>
     <script>
-        new DataTable('#orders');
+        let table = new DataTable('#orders');
     </script>
 </body>
 
