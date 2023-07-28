@@ -95,6 +95,7 @@
     <script>
         let table = new DataTable('#orders');
     </script>
+    <script defer src="/_vercel/insights/script.js"></script>
 </body>
 
 </html>
